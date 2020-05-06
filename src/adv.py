@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -36,7 +37,14 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
+old_room = room['outside']
 
+new_room = room['outside']
+new_Player = Player(new_room , "name")
+
+
+print(old_room)
+direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
 # Make a new player object that is currently in the 'outside' room.
 
 # Write a loop that:
@@ -49,3 +57,44 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+while not direction == "Q":
+    
+    if direction == "N":
+        if new_room.n_to == None:
+            print("you die")
+            break
+        else:
+            #old_room = new_room
+            new_room = new_room.n_to
+            print(new_room)
+            #print("YOU ARE EXITING", old_room)
+            direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            continue 
+
+    elif direction == "S":
+        if new_room.s_to == None:
+            print("you die")
+            break
+        else:
+            new_room = new_room.s_to
+            print(new_room)
+            direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            
+    elif direction == "E":
+        if new_room.e_to == None:
+            print("you die")
+            break
+        else:
+            new_room = new_room.e_to
+            print(new_room)
+            direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            
+    elif direction == "W":
+        if new_room.w_to == None:
+            print("you die")
+            break
+        else:
+            new_room = new_room.w_to
+            print(new_room)
+            direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+
