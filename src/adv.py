@@ -61,8 +61,9 @@ while not direction == "Q":
     
     if direction == "N":
         if new_room.n_to == None:
-            print("you die")
-            break
+            print("you can't go there, go somewhere else")
+            direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            continue 
         else:
             #old_room = new_room
             new_room = new_room.n_to
@@ -73,28 +74,34 @@ while not direction == "Q":
 
     elif direction == "S":
         if new_room.s_to == None:
-            print("you die")
-            break
+            print("you can't go there, go somewhere else")
+            direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            break 
         else:
             new_room = new_room.s_to
             print(new_room)
             direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            continue
             
     elif direction == "E":
         if new_room.e_to == None:
-            print("you die")
-            break
+            print("you can't go there, go somewhere else")
+            direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            break 
         else:
             new_room = new_room.e_to
             print(new_room)
             direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            continue
             
     elif direction == "W":
         if new_room.w_to == None:
-            print("you die")
-            break
+            print("you can't go there, go somewhere else")
+            direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            continue 
         else:
             new_room = new_room.w_to
             print(new_room)
             direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
+            continue
 
