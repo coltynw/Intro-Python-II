@@ -43,6 +43,7 @@ new_room = room['outside']
 new_Player = Player(new_room , "name")
 
 
+
 print(old_room)
 direction = (input("[E] East  [N] North   [W] West    [S] South     [Q] Quit\n")).upper()
 # Make a new player object that is currently in the 'outside' room.
